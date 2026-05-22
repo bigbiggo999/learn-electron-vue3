@@ -1,0 +1,10 @@
+import { test, expect } from '@playwright/test'
+
+test('首页内容与获取 appPath 按钮', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.locator('h2')).toHaveText('欢迎来到首页')
+
+    // 点击按钮后应显示 Electron API 未就绪 的提示（在浏览器环境中）
+    await page.click('button:has-text("获取应用数据目录")')
+    await expect(page.locator('p:has-text("Electron API 未就绪")')).toContainText('Electron API 未就绪')
+})
