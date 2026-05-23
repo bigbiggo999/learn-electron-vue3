@@ -4,17 +4,14 @@ export default defineConfig({
     testDir: 'tests',
     timeout: 30_000,
     expect: { timeout: 5000 },
-    fullyParallel: false,  // 改为顺序执行，便于查看
+    fullyParallel: false,
     reporter: [['html', { open: 'never' }]],
     use: {
-        baseURL: 'http://localhost:5173',
         trace: 'on-first-retry',
-        headless: false,  // 显示浏览器窗口
-        navigationTimeout: 30_000,
     },
     projects: [
         {
-            name: 'chromium',
+            name: 'electron',
             use: { ...devices['Desktop Chrome'] }
         }
     ],
