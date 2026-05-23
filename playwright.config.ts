@@ -4,12 +4,13 @@ export default defineConfig({
     testDir: 'tests',
     timeout: 30_000,
     expect: { timeout: 5000 },
-    fullyParallel: true,
+    fullyParallel: false,  // 改为顺序执行，便于查看
     reporter: [['html', { open: 'never' }]],
     use: {
         baseURL: 'http://localhost:5173',
         trace: 'on-first-retry',
-        headless: true,
+        headless: false,  // 显示浏览器窗口
+        slowMo: 500,  // 每个操作延迟500ms
     },
     projects: [
         {
