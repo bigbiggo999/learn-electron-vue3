@@ -10,7 +10,7 @@ export default defineConfig({
         baseURL: 'http://localhost:5173',
         trace: 'on-first-retry',
         headless: false,  // 显示浏览器窗口
-        slowMo: 500,  // 每个操作延迟500ms
+        navigationTimeout: 30_000,
     },
     projects: [
         {
